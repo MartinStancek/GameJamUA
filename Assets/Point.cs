@@ -28,4 +28,32 @@ public class Point : MonoBehaviour
         Match m = Regex.Match(gameObject.name, @"\w+ \((\d+)\)", RegexOptions.IgnoreCase);
         return Int32.Parse(m.Groups[1].Value);
     }
+
+    public void PlayerArrived()
+    {
+        foreach(Transform t in transform)
+        {
+            switch(t.name)
+            {
+                case "Obstacle":
+                    Player.Instance.energy -= 1;
+                    break;
+                case "Shelter":
+                    Player.Instance.energy += 1;
+                    break;
+                case "Fight":
+                    Player.Instance.health -= 1;
+                    break;
+                case "Hospital":
+                    Player.Instance.health += 1;
+                    break;
+                case "Bandits":
+                    Player.Instance.supplies -= 1;
+                    break;
+                case "Supplies":
+                    Player.Instance.supplies += 1;
+                    break;
+            }
+        }
+    }
 }

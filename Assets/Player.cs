@@ -31,6 +31,10 @@ public class Player : MonoBehaviour
     public int maxSupplies = 3;
     public int maxEnergy = 3;
 
+    public int startHealth = 3;
+    public int startSupplies = 3;
+    public int startEnergy = 3;
+
     private int _health = 2;
     private int _supplies = 3;
     private int _energy = 1;
@@ -40,6 +44,7 @@ public class Player : MonoBehaviour
         get => _health;
         set
         {
+            value = Mathf.Clamp(value, 0, maxHealth);
             _health = value;
             healthBar.SetValue(value);
         }
@@ -49,7 +54,8 @@ public class Player : MonoBehaviour
         get => _supplies;
         set
         {
-            _health = value;
+            value = Mathf.Clamp(value, 0, maxSupplies);
+            _supplies = value;
             suppliesBar.SetValue(value);
         }
     }
@@ -58,7 +64,8 @@ public class Player : MonoBehaviour
         get => _energy;
         set
         {
-            _health = value;
+            value = Mathf.Clamp(value, 0, maxEnergy);
+            _energy = value;
             energyBar.SetValue(value);
         }
     }
@@ -71,9 +78,12 @@ public class Player : MonoBehaviour
     private void Start()
     {
         actualPoint = startPoint;
-        healthBar.Init(maxHealth, health);
-        suppliesBar.Init(maxSupplies, supplies);
-        energyBar.Init(maxEnergy, energy);
+        healthBar.Init(maxHealth, startHealth);
+        suppliesBar.Init(maxSupplies, startSupplies);
+        energyBar.Init(maxEnergy, startEnergy);
+        _health = startHealth;
+        _supplies = startSupplies;
+        _energy = startEnergy;
     }
 
 
@@ -94,6 +104,7 @@ public class Player : MonoBehaviour
             {
                 transform.position = target.transform.position;
                 actualPoint = target;
+                target.PlayerArrived();
                 target = null;
             }
         }
