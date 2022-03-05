@@ -23,4 +23,13 @@ public class StatBar : MonoBehaviour
             go.GetComponentInChildren<Image>().color = i < actualValue ? filledColor : missingColor;
         }
     }
+
+    public void SetValue(int value)
+    {
+        for (var i = 0; i < transform.childCount; i++)
+        {
+            var go = transform.GetChild(i);
+            go.GetComponentInChildren<Image>().color = i < value ? filledColor : missingColor;
+        }
+    }
 }

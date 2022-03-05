@@ -31,9 +31,37 @@ public class Player : MonoBehaviour
     public int maxSupplies = 3;
     public int maxEnergy = 3;
 
-    private int health = 2;
-    private int supplies = 3;
-    private int energy = 1;
+    private int _health = 2;
+    private int _supplies = 3;
+    private int _energy = 1;
+
+    public int health
+    {
+        get => _health;
+        set
+        {
+            _health = value;
+            healthBar.SetValue(value);
+        }
+    }
+    public int supplies
+    {
+        get => _supplies;
+        set
+        {
+            _health = value;
+            suppliesBar.SetValue(value);
+        }
+    }
+    public int energy
+    {
+        get => _energy;
+        set
+        {
+            _health = value;
+            energyBar.SetValue(value);
+        }
+    }
 
     public StatBar healthBar;
     public StatBar suppliesBar;
