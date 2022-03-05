@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Key: health
     m_Metadata:
       m_Items:
-      - rid: 4994502005925872375
+      - rid: 4994502012528754688
   - m_Id: 619661627392
     m_Key: supplies
     m_Metadata:
@@ -32,18 +32,62 @@ MonoBehaviour:
     m_Key: obstacklePopup
     m_Metadata:
       m_Items: []
+  - m_Id: 102564300722176
+    m_Key: shelterPopup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102981000630272
+    m_Key: stealPopup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 103621684760576
+    m_Key: suppliesPopup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 103961612128256
+    m_Key: fight0Popup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104392341983232
+    m_Key: fightnPopup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104588274700288
+    m_Key: fightDeadPopup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 105034741583872
+    m_Key: hospitalPopup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 105639371476992
+    m_Key: npcHealed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 105914639454208
+    m_Key: npcDamaged
+    m_Metadata:
+      m_Items: []
+  - m_Id: 106305796050944
+    m_Key: npcGainSupplies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 106577993797632
+    m_Key: npcDonateSupplies
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 4994502005925872376
+    rid: 4994502012528754689
   references:
     version: 2
     RefIds:
-    - rid: 4994502005925872375
+    - rid: 4994502012528754688
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: little comment test
-    - rid: 4994502005925872376
+    - rid: 4994502012528754689
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1646478343161

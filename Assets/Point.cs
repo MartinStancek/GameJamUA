@@ -44,21 +44,42 @@ public class Point : MonoBehaviour
             switch(t.name)
             {
                 case "Obstacle":
+                    Messages.Instance.SetPanel(Messages.Instance.zapcha, "-1");
                     Player.Instance.energy -= 1;
                     break;
                 case "Shelter":
+                    Messages.Instance.SetPanel(Messages.Instance.ukryt, "+2");
                     Player.Instance.energy += 2;
                     break;
                 case "Fight":
-                    Player.Instance.health -= 1;
+                    var amount = Random.Range(0, 3);
+                    switch (amount)
+                    {
+                        case 0:
+                            Messages.Instance.SetPanel(Messages.Instance.fight0, "-" + amount);
+                            break;
+                        case 1:
+                        case 2:
+                            Messages.Instance.SetPanel(Messages.Instance.fightn, "-" + amount);
+                            Player.Instance.health -= amount;
+                            break;
+                        case 3:
+                            Messages.Instance.SetPanel(Messages.Instance.fightDead, "-" + amount);
+                            Player.Instance.health -= amount;
+                            break;
+
+                    }
                     break;
                 case "Hospital":
+                    Messages.Instance.SetPanel(Messages.Instance.nemocnica, "+2");
                     Player.Instance.health += 2;
                     break;
                 case "Bandits":
+                    Messages.Instance.SetPanel(Messages.Instance.okradnutie, "-1");
                     Player.Instance.supplies -= 1;
                     break;
                 case "Supplies":
+                    Messages.Instance.SetPanel(Messages.Instance.zasoby, "+2");
                     Player.Instance.supplies += 2;
                     break;
             }
