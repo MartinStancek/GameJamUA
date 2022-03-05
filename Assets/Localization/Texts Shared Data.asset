@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Key: health
     m_Metadata:
       m_Items:
-      - rid: 4994502005925871726
+      - rid: 4994502005925872375
   - m_Id: 619661627392
     m_Key: supplies
     m_Metadata:
@@ -28,18 +28,22 @@ MonoBehaviour:
     m_Key: energy
     m_Metadata:
       m_Items: []
+  - m_Id: 77446795104256
+    m_Key: obstacklePopup
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 4994502005925871722
+    rid: 4994502005925872376
   references:
     version: 2
     RefIds:
-    - rid: 4994502005925871722
-      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
-      data:
-        m_CustomEpoch: 1646478343161
-    - rid: 4994502005925871726
+    - rid: 4994502005925872375
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: little comment test
+    - rid: 4994502005925872376
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1646478343161

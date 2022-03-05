@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class Point : MonoBehaviour
 {
@@ -21,12 +23,13 @@ public class Point : MonoBehaviour
         Player.Instance.MoveTo(this);
     }
 
+#if UNITY_EDITOR
+
     private void OnDrawGizmos()
     {
-
-
         Handles.Label(transform.position, GetId().ToString(), sceneLabelStyle);
     }
+# endif
 
     public int GetId()
     {
@@ -44,19 +47,19 @@ public class Point : MonoBehaviour
                     Player.Instance.energy -= 1;
                     break;
                 case "Shelter":
-                    Player.Instance.energy += 1;
+                    Player.Instance.energy += 2;
                     break;
                 case "Fight":
                     Player.Instance.health -= 1;
                     break;
                 case "Hospital":
-                    Player.Instance.health += 1;
+                    Player.Instance.health += 2;
                     break;
                 case "Bandits":
                     Player.Instance.supplies -= 1;
                     break;
                 case "Supplies":
-                    Player.Instance.supplies += 1;
+                    Player.Instance.supplies += 2;
                     break;
             }
         }
@@ -70,12 +73,17 @@ public class Point : MonoBehaviour
             return;
         }
 
+        if (Player.Instance.actualPoint.Equals(this))
+        {
+            return;
+        }
+
         var specialBlock = Random.Range(0, 100) < 50;
         if (specialBlock && transform.childCount > 0)//zostava nezmeneny;
         {
             return;
         }
-        else if (specialBlock && transform.childCount == 0 && !Player.Instance.actualPoint.Equals(this))//pridava sa ;
+        else if (specialBlock && transform.childCount == 0)//pridava sa ;
         {
             var specialType = Random.Range(0, 100);
             if (specialType < 35) //prekazka

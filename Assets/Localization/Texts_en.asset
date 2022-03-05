@@ -30,6 +30,10 @@ MonoBehaviour:
     m_Localized: Energy
     m_Metadata:
       m_Items: []
+  - m_Id: 77446795104256
+    m_Localized: "en_Ocitol si sa v dopravnej z\xE1pche."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
