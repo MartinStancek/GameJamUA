@@ -82,6 +82,20 @@ public class Point : MonoBehaviour
                     Messages.Instance.SetPanel(Messages.Instance.zasoby, "+2");
                     Player.Instance.supplies += 2;
                     break;
+                case "NPC":
+                    var type = Random.Range(0, 2);
+                    var direction = Random.Range(0, 2) * 2 - 1;
+                    if(type == 0)
+                    {
+                        Messages.Instance.SetPanel(direction > 0 ? Messages.Instance.npcHealthGain : Messages.Instance.npcHealthReduce, "" + (direction > 0 ? "+" + direction : direction));
+                        Player.Instance.health += direction;
+                    } 
+                    else
+                    {
+                        Messages.Instance.SetPanel(direction > 0 ? Messages.Instance.npcSuppliesGain : Messages.Instance.npcSuppliesReduce, "" + (direction > 0 ? "+" + direction : direction));
+                        Player.Instance.supplies += direction;
+                    }
+                    break;
             }
         }
     }
@@ -125,11 +139,8 @@ public class Point : MonoBehaviour
             }
             else // Random NPC
             {
-                Debug.Log("TODO: Random NPC");
-                /*;;
                 var go = Instantiate(randomNPCPrefab, transform);
-                go.name = randomNPCPrefab.name;*/
-
+                go.name = randomNPCPrefab.name;
             }
         }
         else if (!specialBlock && transform.childCount > 0)
