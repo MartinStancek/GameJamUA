@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class MapGen : MonoBehaviour
 {
+    #region Singleton
+    private static MapGen _instance;
+    public static MapGen Instance
+    {
+        get
+        {
+            if (!_instance)
+            {
+                _instance = GameObject.FindObjectOfType<MapGen>();
+            }
+            return _instance;
+
+        }
+    }
+    #endregion
+
     public Vector2Int[] edges;
 
     public Transform points;
@@ -51,5 +67,14 @@ public class MapGen : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void AfterPlayerMoved()
+    {
+        foreach (Transform p in points)
+        {
+            var point = p.GetComponent<Point>();
+            point.AfterPlayerTrun();
+        }
     }
 }

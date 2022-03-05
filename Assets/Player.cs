@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public float speed = 3f;
 
     private Point target = null;
-    private Point actualPoint;
+    public Point actualPoint;
 
     public Point startPoint;
 
@@ -106,6 +106,7 @@ public class Player : MonoBehaviour
                 actualPoint = target;
                 target.PlayerArrived();
                 target = null;
+                MapGen.Instance.AfterPlayerMoved();
             }
         }
     }

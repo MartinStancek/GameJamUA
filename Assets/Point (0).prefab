@@ -166,6 +166,10 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 0
     m_StretchHeight: 0
+  obstacklePrefab: {fileID: 5156677013999847849, guid: b9725387b8bb1b749abc703a06c27b6f, type: 3}
+  banditsPrefab: {fileID: 1380498359431723659, guid: a51be1c9b60dc98429474901bf5e8b85, type: 3}
+  fightPrefab: {fileID: 1725389502775248429, guid: 01aec017beda717478fde227afeaeba6, type: 3}
+  randomNPCPrefab: {fileID: 0}
 --- !u!135 &1929240653453373233
 SphereCollider:
   m_ObjectHideFlags: 0
