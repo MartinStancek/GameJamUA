@@ -77,11 +77,11 @@ public class Point : MonoBehaviour
         {
             case "Obstacle":
                 amount = Random.Range(0, 100) < 60 ? -1 : -2;
-                Messages.Instance.SetPanel(Messages.Instance.zapcha, "" + amount);
+                Messages.Instance.AddMessage(Messages.Instance.obstickle, "" + amount, Messages.Instance.energyIcon);
                 Player.Instance.energy += amount;
                 break;
             case "Shelter":
-                Messages.Instance.SetPanel(Messages.Instance.ukryt, "+2");
+                Messages.Instance.AddMessage(Messages.Instance.shelter, "+2", Messages.Instance.energyIcon);
                 Player.Instance.energy += 2;
                 break;
             case "Fight":
@@ -89,31 +89,31 @@ public class Point : MonoBehaviour
                 switch (amount)
                 {
                     case 0:
-                        Messages.Instance.SetPanel(Messages.Instance.fight0, "-" + amount);
+                        Messages.Instance.AddMessage(Messages.Instance.fight0, "-" + amount, Messages.Instance.healthIcon);
                         break;
                     case 1:
                     case 2:
-                        Messages.Instance.SetPanel(Messages.Instance.fightn, "-" + amount);
+                        Messages.Instance.AddMessage(Messages.Instance.fightn, "-" + amount, Messages.Instance.healthIcon);
                         Player.Instance.health -= amount;
                         break;
                     case 3:
-                        Messages.Instance.SetPanel(Messages.Instance.fightDead, "-" + amount);
+                        Messages.Instance.AddMessage(Messages.Instance.fightKill, "-" + amount, Messages.Instance.healthIcon);
                         Player.Instance.health -= amount;
                         break;
 
                 }
                 break;
             case "Hospital":
-                Messages.Instance.SetPanel(Messages.Instance.nemocnica, "+2");
+                Messages.Instance.AddMessage(Messages.Instance.hospital, "+2", Messages.Instance.healthIcon);
                 Player.Instance.health += 2;
                 break;
             case "Bandits":
                 amount = Random.Range(0, 100) < 60 ? -1 : -2;
-                Messages.Instance.SetPanel(Messages.Instance.okradnutie, "" + amount);
+                Messages.Instance.AddMessage(Messages.Instance.uplatok, "" + amount, Messages.Instance.moneyIcon);
                 Player.Instance.supplies += amount;
                 break;
             case "Supplies":
-                Messages.Instance.SetPanel(Messages.Instance.zasoby, "+2");
+                Messages.Instance.AddMessage(Messages.Instance.sellStuff, "+2", Messages.Instance.moneyIcon);
                 Player.Instance.supplies += 2;
                 break;
             case "NPC":
@@ -121,12 +121,13 @@ public class Point : MonoBehaviour
                 var direction = Random.Range(0, 100) < 60 ? +1 : -1;
                 if (type == 0)
                 {
-                    Messages.Instance.SetPanel(direction > 0 ? Messages.Instance.npcHealthGain : Messages.Instance.npcHealthReduce, "" + (direction > 0 ? "+" + direction : direction));
+                    Messages.Instance.AddMessage(direction > 0 ? Messages.Instance.npcHealthUp : Messages.Instance.npcHealthDown, "" + (direction > 0 ? "+" + direction : direction), Messages.Instance.healthIcon);
+
                     Player.Instance.health += direction;
                 }
                 else
                 {
-                    Messages.Instance.SetPanel(direction > 0 ? Messages.Instance.npcSuppliesGain : Messages.Instance.npcSuppliesReduce, "" + (direction > 0 ? "+" + direction : direction));
+                    Messages.Instance.AddMessage(direction > 0 ? Messages.Instance.npcMoneyIncome : Messages.Instance.npcMonyeDonate, "" + (direction > 0 ? "+" + direction : direction), Messages.Instance.moneyIcon);
                     Player.Instance.supplies += direction;
                 }
                 break;

@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization;
 using TMPro;
 
 public class Messages : MonoBehaviour
@@ -21,42 +24,38 @@ public class Messages : MonoBehaviour
     }
     #endregion
 
-    public Transform zapcha;
-    public Transform ukryt;
-    public Transform okradnutie;
-    public Transform zasoby;
-    public Transform fight0;
-    public Transform fightn;
-    public Transform fightDead;
-    public Transform nemocnica;
-    public Transform npcHealthGain;
-    public Transform npcHealthReduce;
-    public Transform npcSuppliesGain;
-    public Transform npcSuppliesReduce;
-    // Start is called before the first frame update
-    void Start()
+    public RectTransform content;
+    public GameObject msgPrefab;
+
+    public readonly string obstickle = "obstacklePopup";
+    public readonly string shelter = "shelterPopup";
+    public readonly string uplatok = "stealPopup";
+    public readonly string sellStuff = "suppliesPopup";
+    public readonly string fight0 = "fight0Popup";
+    public readonly string fightn = "fightnPopup";
+    public readonly string fightKill = "fightDeadPopup";
+    public readonly string hospital = "hospitalPopup";
+    public readonly string npcMoneyIncome = "npcGainSupplies";
+    public readonly string npcMonyeDonate = "npcDonateSupplies";
+    public readonly string npcHealthUp = "npcHealed";
+    public readonly string npcHealthDown = "npcDamaged";
+
+    public Sprite healthIcon;
+    public Sprite moneyIcon;
+    public Sprite energyIcon;
+
+    public void AddMessage(string msgCode, string amount, Sprite icon)
     {
-        SetPanel(null, null);
+        var msgGo = Instantiate(msgPrefab, content);
+        msgGo.transform.Find("Amount").GetComponent<TMP_Text>().text = amount;
+        var loc = msgGo.transform.Find("Msg").GetComponent<LocalizeStringEvent>();
+        loc.StringReference.TableReference = "Texts";
+        loc.StringReference.TableEntryReference = msgCode;
+        msgGo.transform.Find("Icon").GetComponent<Image>().sprite = icon;
+
+        var msgT = msgGo.GetComponent<RectTransform>();
+        content.sizeDelta = new Vector2(content.sizeDelta.x, msgT.sizeDelta.y * content.childCount);
+        GetComponent<ScrollRect>().velocity = Vector2.up * 300;
     }
 
-    public void SetPanel(Transform panel, string amount)
-    {
-        zapcha.gameObject.SetActive(false);
-        ukryt.gameObject.SetActive(false);
-        okradnutie.gameObject.SetActive(false);
-        zasoby.gameObject.SetActive(false);
-        fight0.gameObject.SetActive(false);
-        fightn.gameObject.SetActive(false);
-        fightDead.gameObject.SetActive(false);
-        nemocnica.gameObject.SetActive(false);
-        npcHealthGain.gameObject.SetActive(false);
-        npcHealthReduce.gameObject.SetActive(false);
-        npcSuppliesGain.gameObject.SetActive(false);
-        npcSuppliesReduce.gameObject.SetActive(false);
-        if (panel)
-        {
-            panel.gameObject.SetActive(true);
-            panel.Find("Amount").GetComponent<TMP_Text>().text = amount;
-        }
-    }
 }

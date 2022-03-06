@@ -31,52 +31,56 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 77446795104256
-    m_Localized: "Ocitol si sa v dopravnej z\xE1pche."
+    m_Localized: "Zdolal som vy\u010Derp\xE1vaj\xFAcu prek\xE1\u017Eku.\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 102564300722176
-    m_Localized: "V \xFAkryte si na\u010Derpal sily."
+    m_Localized: "V \xFAkryte som op\xE4\u0165 na\u010Derpal sily.\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 102981000630272
-    m_Localized: "Okradli \u0165a (copy dopln\xEDm pod\u013Ea vizu\xE1lu)."
+    m_Localized: "Musel som podplati\u0165 vojaka, aby som mohol pokra\u010Dova\u0165.\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 103621684760576
-    m_Localized: "Doplnil si z\xE1soby (copy dopln\xEDm pod\u013Ea vizu\xE1lu)."
+    m_Localized: "Predal som rodinn\xFD \u0161perk, aby som z\xEDskal aspo\u0148
+      nejak\xE9 peniaze.\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 103961612128256
-    m_Localized: "Podarilo sa ti unikn\xFA\u0165 bez zranenia."
+    m_Localized: "Podarilo sa mi unikn\xFA\u0165 bez zranenia.\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 104392341983232
-    m_Localized: "Prechodom cez bojov\xFA z\xF3nu si utrpel si zranienia."
+    m_Localized: 'Zranili ma...
+
+'
     m_Metadata:
       m_Items: []
   - m_Id: 104588274700288
-    m_Localized: "Utrpel si fat\xE1lne zranenia."
+    m_Localized: "Strie\u013Eaj\xFA po mne!!!\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 105034741583872
-    m_Localized: "V nemocnici \u0165a o\u0161etrili."
+    m_Localized: "V nemocnici mi o\u0161etrili zranenia.\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 105639371476992
-    m_Localized: "Nezn\xE1ma osoba ti pomohla a o\u0161etrila tvoje zranenia."
+    m_Localized: "Nezn\xE1my civilista mi o\u0161etril zranenia.\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 105914639454208
-    m_Localized: "Pri strete s nezn\xE1mou osobou do\u0161lo k pot\xFD\u010Dke."
+    m_Localized: "Za\xFAto\u010Dil na m\u0148a opit\xFD civilista. Podarilo sa mi
+      utiec\u0165."
     m_Metadata:
       m_Items: []
   - m_Id: 106305796050944
-    m_Localized: "Nezn\xE1ma osoba ti pomohla a darovala \u010Das\u0165 svojich z\xE1sob."
+    m_Localized: "Solid\xE1rny civilista mi daroval nejak\xE9 peniaze.\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 106577993797632
-    m_Localized: "Pomohol si nezn\xE1mej osobe a daroval si jej \u010Das\u0165 svojich
-      z\xE1sob"
+    m_Localized: "Daroval som \u010Das\u0165 svojich pe\u0148az\xED z\xFAfal\xE9mu
+      civilistovi.\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 371455715315712
