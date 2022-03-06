@@ -48,6 +48,10 @@ public class Player : MonoBehaviour
             value = Mathf.Clamp(value, 0, maxHealth);
             _health = value;
             healthBar.SetValue(value);
+            if (value == 0)
+            {
+                GameManager.Instance.LooseGame();
+            }
         }
     }
     public int supplies
@@ -58,6 +62,10 @@ public class Player : MonoBehaviour
             value = Mathf.Clamp(value, 0, maxSupplies);
             _supplies = value;
             suppliesBar.SetValue(value);
+            if (value == 0)
+            {
+                GameManager.Instance.LooseGame();
+            }
         }
     }
     public int energy
@@ -68,6 +76,10 @@ public class Player : MonoBehaviour
             value = Mathf.Clamp(value, 0, maxEnergy);
             _energy = value;
             energyBar.SetValue(value);
+            if(value == 0)
+            {
+                GameManager.Instance.LooseGame();
+            }
         }
     }
 
@@ -123,6 +135,11 @@ public class Player : MonoBehaviour
                 target = null;
                 MapGen.Instance.AfterPlayerMoved();
                 anim.SetBool("isRunning", false);
+
+                if (actualPoint.Equals(endPoint))
+                {
+                    GameManager.Instance.WinGame();
+                }
 
             }
         }
