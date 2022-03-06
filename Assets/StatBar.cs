@@ -10,26 +10,13 @@ public class StatBar : MonoBehaviour
 
     public GameObject barPart;
 
-    public void Init(int maxValue, int actualValue)
-    {
-        for (int i = transform.childCount - 1; i >= 0; i--)
-        {
-            GameObject.DestroyImmediate(transform.GetChild(i).gameObject);
-        }
-
-        for (var i = 0; i < maxValue; i++)
-        {
-            var go = Instantiate(barPart, transform);
-            go.GetComponentInChildren<Image>().color = i < actualValue ? filledColor : missingColor;
-        }
-    }
-
     public void SetValue(int value)
     {
-        for (var i = 0; i < transform.childCount; i++)
+        foreach (Transform t in transform)
         {
-            var go = transform.GetChild(i);
-            go.GetComponentInChildren<Image>().color = i < value ? filledColor : missingColor;
+            t.gameObject.SetActive(false);
         }
+        transform.Find("" + value).gameObject.SetActive(true);
+
     }
 }

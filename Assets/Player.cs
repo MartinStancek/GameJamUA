@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public Point actualPoint;
 
     public Point startPoint;
+    public Point endPoint;
 
     public int maxHealth = 3;
     public int maxSupplies = 3;
@@ -74,16 +75,19 @@ public class Player : MonoBehaviour
     public StatBar suppliesBar;
     public StatBar energyBar;
 
+    private Animator anim;
+
 
     private void Start()
     {
         actualPoint = startPoint;
-        healthBar.Init(maxHealth, startHealth);
-        suppliesBar.Init(maxSupplies, startSupplies);
-        energyBar.Init(maxEnergy, startEnergy);
+        healthBar.SetValue(startHealth);
+        suppliesBar.SetValue(startSupplies);
+        energyBar.SetValue(startEnergy);
         _health = startHealth;
         _supplies = startSupplies;
         _energy = startEnergy;
+        anim = GetComponent<Animator>();
     }
 
 
@@ -92,6 +96,17 @@ public class Player : MonoBehaviour
         if (target == null && actualPoint.connectedTo.Contains(point))
         {
             target = point;
+            var kido = transform.Find("kido");
+
+            if (transform.position.x - target.transform.position.x > 0)
+            {
+                kido.transform.localScale = new Vector3(Mathf.Abs(kido.transform.localScale.x), kido.transform.localScale.y, kido.transform.localScale.z);
+            } 
+            else 
+            {
+                kido.transform.localScale = new Vector3(-Mathf.Abs(kido.transform.localScale.x), kido.transform.localScale.y, kido.transform.localScale.z);
+            }
+            anim.SetBool("isRunning", true);
         }
     }
 
@@ -107,6 +122,8 @@ public class Player : MonoBehaviour
                 target.PlayerArrived();
                 target = null;
                 MapGen.Instance.AfterPlayerMoved();
+                anim.SetBool("isRunning", false);
+
             }
         }
     }

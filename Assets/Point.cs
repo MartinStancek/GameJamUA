@@ -17,6 +17,10 @@ public class Point : MonoBehaviour
     public GameObject fightPrefab;
     public GameObject randomNPCPrefab;
 
+    private void Start()
+    {
+        transform.Find("img").SetAsLastSibling();
+    }
 
     private void OnMouseUp()
     {
@@ -28,6 +32,7 @@ public class Point : MonoBehaviour
     private void OnDrawGizmos()
     {
         Handles.Label(transform.position, GetId().ToString(), sceneLabelStyle);
+        transform.position = new Vector3(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), Mathf.RoundToInt(transform.position.z));
     }
 # endif
 
@@ -39,75 +44,82 @@ public class Point : MonoBehaviour
 
     public void PlayerArrived()
     {
-        int amount;
-        foreach (Transform t in transform)
+        if(transform.childCount == 1)
         {
-            switch(t.name)
-            {
-                case "Obstacle":
-                    amount = Random.Range(0, 100) < 60 ? -1 : -2;
-                    Messages.Instance.SetPanel(Messages.Instance.zapcha, ""+ amount);
-                    Player.Instance.energy += amount;
-                    break;
-                case "Shelter":
-                    Messages.Instance.SetPanel(Messages.Instance.ukryt, "+2");
-                    Player.Instance.energy += 2;
-                    break;
-                case "Fight":
-                    amount = Random.Range(0, 3);
-                    switch (amount)
-                    {
-                        case 0:
-                            Messages.Instance.SetPanel(Messages.Instance.fight0, "-" + amount);
-                            break;
-                        case 1:
-                        case 2:
-                            Messages.Instance.SetPanel(Messages.Instance.fightn, "-" + amount);
-                            Player.Instance.health -= amount;
-                            break;
-                        case 3:
-                            Messages.Instance.SetPanel(Messages.Instance.fightDead, "-" + amount);
-                            Player.Instance.health -= amount;
-                            break;
-
-                    }
-                    break;
-                case "Hospital":
-                    Messages.Instance.SetPanel(Messages.Instance.nemocnica, "+2");
-                    Player.Instance.health += 2;
-                    break;
-                case "Bandits":
-                    amount = Random.Range(0, 100) < 60 ? -1 : -2;
-                    Messages.Instance.SetPanel(Messages.Instance.okradnutie, "" + amount);
-                    Player.Instance.supplies += amount;
-                    break;
-                case "Supplies":
-                    Messages.Instance.SetPanel(Messages.Instance.zasoby, "+2");
-                    Player.Instance.supplies += 2;
-                    break;
-                case "NPC":
-                    var type = Random.Range(0, 2);
-                    var direction = Random.Range(0, 100) < 60 ? +1 : -1;
-                    if(type == 0)
-                    {
-                        Messages.Instance.SetPanel(direction > 0 ? Messages.Instance.npcHealthGain : Messages.Instance.npcHealthReduce, "" + (direction > 0 ? "+" + direction : direction));
-                        Player.Instance.health += direction;
-                    } 
-                    else
-                    {
-                        Messages.Instance.SetPanel(direction > 0 ? Messages.Instance.npcSuppliesGain : Messages.Instance.npcSuppliesReduce, "" + (direction > 0 ? "+" + direction : direction));
-                        Player.Instance.supplies += direction;
-                    }
-                    break;
-            }
-            Destroy(t.gameObject, 0.5f);
+            return;
         }
+        int amount;
+        var t = transform.GetChild(0);
+        switch (t.name)
+        {
+            case "Obstacle":
+                amount = Random.Range(0, 100) < 60 ? -1 : -2;
+                Messages.Instance.SetPanel(Messages.Instance.zapcha, "" + amount);
+                Player.Instance.energy += amount;
+                break;
+            case "Shelter":
+                Messages.Instance.SetPanel(Messages.Instance.ukryt, "+2");
+                Player.Instance.energy += 2;
+                break;
+            case "Fight":
+                amount = Random.Range(0, 4);
+                switch (amount)
+                {
+                    case 0:
+                        Messages.Instance.SetPanel(Messages.Instance.fight0, "-" + amount);
+                        break;
+                    case 1:
+                    case 2:
+                        Messages.Instance.SetPanel(Messages.Instance.fightn, "-" + amount);
+                        Player.Instance.health -= amount;
+                        break;
+                    case 3:
+                        Messages.Instance.SetPanel(Messages.Instance.fightDead, "-" + amount);
+                        Player.Instance.health -= amount;
+                        break;
+
+                }
+                break;
+            case "Hospital":
+                Messages.Instance.SetPanel(Messages.Instance.nemocnica, "+2");
+                Player.Instance.health += 2;
+                break;
+            case "Bandits":
+                amount = Random.Range(0, 100) < 60 ? -1 : -2;
+                Messages.Instance.SetPanel(Messages.Instance.okradnutie, "" + amount);
+                Player.Instance.supplies += amount;
+                break;
+            case "Supplies":
+                Messages.Instance.SetPanel(Messages.Instance.zasoby, "+2");
+                Player.Instance.supplies += 2;
+                break;
+            case "NPC":
+                var type = Random.Range(0, 2);
+                var direction = Random.Range(0, 100) < 60 ? +1 : -1;
+                if (type == 0)
+                {
+                    Messages.Instance.SetPanel(direction > 0 ? Messages.Instance.npcHealthGain : Messages.Instance.npcHealthReduce, "" + (direction > 0 ? "+" + direction : direction));
+                    Player.Instance.health += direction;
+                }
+                else
+                {
+                    Messages.Instance.SetPanel(direction > 0 ? Messages.Instance.npcSuppliesGain : Messages.Instance.npcSuppliesReduce, "" + (direction > 0 ? "+" + direction : direction));
+                    Player.Instance.supplies += direction;
+                }
+                break;
+        }
+        Destroy(t.gameObject, 0.5f);
     }
 
     public void AfterPlayerTrun()
     {
         var staticEntities = new List<string>() { "Shelter", "Hospital", "Supplies" };
-        if(transform.childCount > 0 && staticEntities.Contains(transform.GetChild(0).name))
+        if (transform.childCount > 1 && staticEntities.Contains(transform.GetChild(0).name))
+        {
+            return;
+        }
+
+        if (Player.Instance.startPoint.Equals(this) || Player.Instance.endPoint.Equals(this))
         {
             return;
         }
@@ -118,36 +130,40 @@ public class Point : MonoBehaviour
         }
 
         var specialBlock = Random.Range(0, 100) < 50;
-        if (specialBlock && transform.childCount > 0)//zostava nezmeneny;
+        if (specialBlock && transform.childCount > 1)//zostava nezmeneny;
         {
             return;
         }
-        else if (specialBlock && transform.childCount == 0)//pridava sa ;
+        else if (specialBlock && transform.childCount == 1)//pridava sa ;
         {
             var specialType = Random.Range(0, 100);
             if (specialType < 25) //prekazka
             {
                 var go = Instantiate(obstacklePrefab, transform);
+                go.transform.SetAsFirstSibling();
                 go.name = obstacklePrefab.name;
             }
             else if (specialType < 50)  //bandits
             {
                 var go = Instantiate(banditsPrefab, transform);
+                go.transform.SetAsFirstSibling();
                 go.name = banditsPrefab.name;
             }
             else if (specialType < 75)  //Fight
             {
                 var go = Instantiate(fightPrefab, transform);
+                go.transform.SetAsFirstSibling();
                 go.name = fightPrefab.name;
 
             }
             else // Random NPC
             {
                 var go = Instantiate(randomNPCPrefab, transform);
+                go.transform.SetAsFirstSibling();
                 go.name = randomNPCPrefab.name;
             }
         }
-        else if (!specialBlock && transform.childCount > 0)
+        else if (!specialBlock && transform.childCount > 1)
         {
             Destroy(transform.GetChild(0).gameObject);
 
