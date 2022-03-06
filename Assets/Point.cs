@@ -131,7 +131,8 @@ public class Point : MonoBehaviour
                 }
                 break;
         }
-        Destroy(t.gameObject, 0.5f);
+        LeanTween.scale(t.gameObject, Vector3.zero, 0.3f);
+        Destroy(t.gameObject, 0.3f);
     }
 
     public void AfterPlayerTrun()
@@ -159,36 +160,40 @@ public class Point : MonoBehaviour
         }
         else if (specialBlock && transform.childCount == 1)//pridava sa ;
         {
+            GameObject go;
             var specialType = Random.Range(0, 100);
             if (specialType < 25) //prekazka
             {
-                var go = Instantiate(obstacklePrefab, transform);
+                go = Instantiate(obstacklePrefab, transform);
                 go.transform.SetAsFirstSibling();
                 go.name = obstacklePrefab.name;
             }
             else if (specialType < 50)  //bandits
             {
-                var go = Instantiate(banditsPrefab, transform);
+                go = Instantiate(banditsPrefab, transform);
                 go.transform.SetAsFirstSibling();
                 go.name = banditsPrefab.name;
             }
             else if (specialType < 75)  //Fight
             {
-                var go = Instantiate(fightPrefab, transform);
+                go = Instantiate(fightPrefab, transform);
                 go.transform.SetAsFirstSibling();
                 go.name = fightPrefab.name;
 
             }
             else // Random NPC
             {
-                var go = Instantiate(randomNPCPrefab, transform);
+                go = Instantiate(randomNPCPrefab, transform);
                 go.transform.SetAsFirstSibling();
                 go.name = randomNPCPrefab.name;
             }
+            go.transform.localScale = Vector3.zero;
+            LeanTween.scale(go, Vector3.one, 0.3f);
         }
         else if (!specialBlock && transform.childCount > 1)
         {
-            Destroy(transform.GetChild(0).gameObject);
+            LeanTween.scale(transform.GetChild(0).gameObject, Vector3.zero, 0.3f);
+            Destroy(transform.GetChild(0).gameObject, 0.3f);
 
         }
     }
