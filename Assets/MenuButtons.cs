@@ -56,10 +56,13 @@ public class MenuButtons : MonoBehaviour
         if (musicImage.sprite.Equals(musicOnSprite))
         {
             musicImage.sprite = musicOffSprite;
+            MusicManager.SetMusicVolume(0f);
         }
         else
         {
             musicImage.sprite = musicOnSprite; ;
+            MusicManager.SetMusicVolume(1f);
+
         }
     }
 
