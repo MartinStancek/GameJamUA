@@ -22,6 +22,6 @@ public class MainMenuManager : MonoBehaviour
         screen1.SetActive(false);
         screen2.SetActive(true);
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(1);
     }
 }

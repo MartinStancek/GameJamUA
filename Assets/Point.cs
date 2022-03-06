@@ -85,7 +85,7 @@ public class Point : MonoBehaviour
                 Player.Instance.energy += 2;
                 break;
             case "Fight":
-                amount = Random.Range(0, 4);
+                amount = Random.Range(0, 3);
                 switch (amount)
                 {
                     case 0:

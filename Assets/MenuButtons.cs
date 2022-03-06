@@ -68,7 +68,7 @@ public class MenuButtons : MonoBehaviour
 
     public void RestartRound()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void LoadLocale(string languageIdentifier)
