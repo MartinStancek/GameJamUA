@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 public class MenuButtons : MonoBehaviour
 {
@@ -34,14 +36,17 @@ public class MenuButtons : MonoBehaviour
             case Language.SK:
                 languageImage.sprite = languageEnSprite;
                 currentLanguage = Language.EN;
+                LoadLocale("en");
                 break;
             case Language.EN:
                 languageImage.sprite = languageUaSprite;
                 currentLanguage = Language.UA;
+                LoadLocale("uk");
                 break;
             case Language.UA:
                 languageImage.sprite = languageSkSprite;
                 currentLanguage = Language.SK;
+                LoadLocale("sk");
                 break;
 
         }
@@ -61,5 +66,20 @@ public class MenuButtons : MonoBehaviour
     public void RestartRound()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void LoadLocale(string languageIdentifier)
+    {
+        LocalizationSettings settings = LocalizationSettings.Instance;
+        LocaleIdentifier localeCode = new LocaleIdentifier(languageIdentifier);//can be "en" "de" "ja" etc.
+        for (int i = 0; i < LocalizationSettings.AvailableLocales.Locales.Count; i++)
+        {
+            Locale aLocale = LocalizationSettings.AvailableLocales.Locales[i];
+            LocaleIdentifier anIdentifier = aLocale.Identifier;
+            if (anIdentifier == localeCode)
+            {
+                LocalizationSettings.SelectedLocale = aLocale;
+            }
+        }
     }
 }

@@ -17,15 +17,38 @@ public class Point : MonoBehaviour
     public GameObject fightPrefab;
     public GameObject randomNPCPrefab;
 
+    private Vector3 origScale;
+
     private void Start()
     {
         transform.Find("img").SetAsLastSibling();
+        origScale = transform.Find("img").localScale;
     }
 
     private void OnMouseUp()
     {
         Player.Instance.MoveTo(this);
     }
+    private void OnMouseEnter()
+    {
+        if(!Player.Instance.actualPoint.Equals(this) && Player.Instance.actualPoint.connectedTo.Contains(this))
+        HighLight();
+    }
+    private void OnMouseExit()
+    {
+        UnhighLight();
+    }    
+    
+    public void HighLight()
+    {
+        transform.Find("img").localScale *= 1.3f;
+    }
+    public void UnhighLight()
+    {
+        transform.Find("img").localScale = origScale;
+
+    }
+
 
 #if UNITY_EDITOR
 

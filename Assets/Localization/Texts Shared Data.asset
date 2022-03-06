@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Key: health
     m_Metadata:
       m_Items:
-      - rid: 4994502012528754688
+      - rid: 4994502028796363004
   - m_Id: 619661627392
     m_Key: supplies
     m_Metadata:
@@ -76,18 +76,26 @@ MonoBehaviour:
     m_Key: npcDonateSupplies
     m_Metadata:
       m_Items: []
+  - m_Id: 371455715315712
+    m_Key: sceneStartInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371795143561216
+    m_Key: loading
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 4994502012528754689
+    rid: 4994502028796363005
   references:
     version: 2
     RefIds:
-    - rid: 4994502012528754688
+    - rid: 4994502028796363004
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: little comment test
-    - rid: 4994502012528754689
+    - rid: 4994502028796363005
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1646478343161
