@@ -26,6 +26,7 @@ public class Enviroment : MonoBehaviour
     private void Start()
     {
         var skin = transform.Find("Skin");
+        skin.position = new Vector3(skin.position.x, skin.position.y, (transform.position.y + 6) / 23);
         var flip = Random.Range(0, 2) == 1;
         if (flip)
         {

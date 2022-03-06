@@ -127,7 +127,7 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_ASYNC_ASSETBUNDLE_UWR
 --compilation-defines=TIMELINE_FRAMEACCURATE
 --compilation-defines=ENABLE_SPRITESHAPE_BURST
---linker-options=PdbAltPath="GameJamUA_Data/Plugins/x86_64"
+--linker-options=PdbAltPath="PointOfNoReturn_Data/Plugins/x86_64"
 --output=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Plugins\x86_64\lib_burst_generated
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Flow.dll
@@ -284,7 +284,7 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_ASYNC_ASSETBUNDLE_UWR
 --compilation-defines=TIMELINE_FRAMEACCURATE
 --compilation-defines=ENABLE_SPRITESHAPE_BURST
---linker-options=PdbAltPath="GameJamUA_Data/Plugins/x86_64"
+--linker-options=PdbAltPath="PointOfNoReturn_Data/Plugins/x86_64"
 --output=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Plugins\x86_64\lib_burst_generated
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Flow.dll
