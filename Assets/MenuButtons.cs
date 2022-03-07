@@ -19,7 +19,7 @@ public class MenuButtons : MonoBehaviour
     public Sprite languageUaSprite;
 
     private static Language currentLanguage;
-    private static bool music;
+    private static bool music = true;
 
     private enum Language
     {
@@ -42,6 +42,7 @@ public class MenuButtons : MonoBehaviour
         }
 
         MusicManager.SetMusicVolume(music ? 1f : 0f);
+        musicImage.sprite = music ? musicOnSprite : musicOffSprite;
 
     }
 

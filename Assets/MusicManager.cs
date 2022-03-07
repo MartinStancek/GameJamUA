@@ -129,7 +129,7 @@ public class MusicManager : MonoBehaviour
     {
         if (Instance.musicSource != null)
         {
-            Instance.musicSource.volume = value;
+            Instance.musicSource.volume = MusicManager.Instance.gameMusic.volume * value;
         }
     }
 }

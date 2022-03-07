@@ -39,6 +39,8 @@ public class Messages : MonoBehaviour
     public readonly string npcMonyeDonate = "npcDonateSupplies";
     public readonly string npcHealthUp = "npcHealed";
     public readonly string npcHealthDown = "npcDamaged";
+    public readonly string okradnutieVojakom = "okradnutieVojakomPopup";
+    
 
     public Sprite healthIcon;
     public Sprite moneyIcon;

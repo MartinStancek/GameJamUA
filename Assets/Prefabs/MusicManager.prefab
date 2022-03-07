@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuMusic:
     clip: {fileID: 8300000, guid: 9ed2c35ac8e3c7f43b2d3cc64c5e8342, type: 3}
-    volume: 1
+    volume: 0.5
   gameMusic:
     clip: {fileID: 8300000, guid: cbf614b4dac62ea4d854288eeeb1a6de, type: 3}
-    volume: 1
+    volume: 0.5

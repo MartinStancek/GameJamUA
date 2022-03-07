@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Key: health
     m_Metadata:
       m_Items:
-      - rid: 4994502056683241646
+      - rid: 4994502056683241787
   - m_Id: 619661627392
     m_Key: supplies
     m_Metadata:
@@ -100,18 +100,22 @@ MonoBehaviour:
     m_Key: journeyBegins
     m_Metadata:
       m_Items: []
+  - m_Id: 842829084889088
+    m_Key: okradnutieVojakomPopup
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 4994502056683241647
+    rid: 4994502056683241788
   references:
     version: 2
     RefIds:
-    - rid: 4994502056683241646
+    - rid: 4994502056683241787
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: little comment test
-    - rid: 4994502056683241647
+    - rid: 4994502056683241788
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1646478343161

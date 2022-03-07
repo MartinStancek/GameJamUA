@@ -94,7 +94,7 @@ public class Point : MonoBehaviour
         switch (t.name)
         {
             case "Obstacle":
-                amount = Random.Range(0, 100) < 60 ? -1 : -2;
+                amount =  -1;
                 Messages.Instance.AddMessage(Messages.Instance.obstickle, "" + amount, Messages.Instance.energyIcon);
                 Player.Instance.energy += amount;
                 break;
@@ -110,15 +110,13 @@ public class Point : MonoBehaviour
                         Messages.Instance.AddMessage(Messages.Instance.fight0, "-" + amount, Messages.Instance.healthIcon);
                         break;
                     case 1:
-                    case 2:
                         Messages.Instance.AddMessage(Messages.Instance.fightn, "-" + amount, Messages.Instance.healthIcon);
                         Player.Instance.health -= amount;
                         break;
-                    case 3:
+                    case 2:
                         Messages.Instance.AddMessage(Messages.Instance.fightKill, "-" + amount, Messages.Instance.healthIcon);
                         Player.Instance.health -= amount;
                         break;
-
                 }
                 break;
             case "Hospital":
@@ -127,7 +125,14 @@ public class Point : MonoBehaviour
                 break;
             case "Bandits":
                 amount = Random.Range(0, 100) < 60 ? -1 : -2;
-                Messages.Instance.AddMessage(Messages.Instance.uplatok, "" + amount, Messages.Instance.moneyIcon);
+                if(amount == -1)
+                {
+                    Messages.Instance.AddMessage(Messages.Instance.uplatok, "" + amount, Messages.Instance.moneyIcon);
+                } 
+                else
+                {
+                    Messages.Instance.AddMessage(Messages.Instance.okradnutieVojakom, "" + amount, Messages.Instance.moneyIcon);
+                }
                 Player.Instance.supplies += amount;
                 break;
             case "Supplies":

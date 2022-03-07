@@ -108,6 +108,10 @@ MonoBehaviour:
     m_Localized: "Moja cesta sa v\u0161ak iba za\u010D\xEDna..."
     m_Metadata:
       m_Items: []
+  - m_Id: 842829084889088
+    m_Localized: Vojak ma okradol!!!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
