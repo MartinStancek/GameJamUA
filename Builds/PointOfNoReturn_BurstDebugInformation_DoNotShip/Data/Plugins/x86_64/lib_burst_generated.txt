@@ -138,6 +138,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
+--root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.Addressables.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.ResourceManager.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
@@ -147,7 +148,6 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.2D.Common.Runtime.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.2D.IK.Runtime.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.2D.Tilemap.Extras.dll
---root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.013.dll
 --assembly-folder=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\
@@ -295,6 +295,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
+--root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.Addressables.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.ResourceManager.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
@@ -304,7 +305,6 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.2D.Common.Runtime.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.2D.IK.Runtime.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.2D.Tilemap.Extras.dll
---root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
 --root-assembly=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.013.dll
 --assembly-folder=C:\Users\Martin\Desktop\UnityProjects\GameJamUA\Temp\StagingArea\Data\Managed\
