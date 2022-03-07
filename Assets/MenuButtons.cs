@@ -18,11 +18,32 @@ public class MenuButtons : MonoBehaviour
     public Sprite languageEnSprite;
     public Sprite languageUaSprite;
 
+    private static Language currentLanguage;
+    private static bool music;
+
     private enum Language
     {
         SK,EN,UA
     }
-    private Language currentLanguage;
+
+    private void Start()
+    {
+        switch (currentLanguage)
+        {
+            case Language.SK:
+                languageImage.sprite = languageSkSprite;
+                LoadLocale("sk");
+                break;
+            case Language.EN:
+                languageImage.sprite = languageEnSprite;
+                currentLanguage = Language.SK;
+                LoadLocale("en");
+                break;
+        }
+
+        MusicManager.SetMusicVolume(music ? 1f : 0f);
+
+    }
 
     public void Quit()
     {
@@ -39,11 +60,6 @@ public class MenuButtons : MonoBehaviour
                 LoadLocale("en");
                 break;
             case Language.EN:
-                languageImage.sprite = languageUaSprite;
-                currentLanguage = Language.UA;
-                LoadLocale("uk");
-                break;
-            case Language.UA:
                 languageImage.sprite = languageSkSprite;
                 currentLanguage = Language.SK;
                 LoadLocale("sk");
@@ -53,17 +69,17 @@ public class MenuButtons : MonoBehaviour
     }
     public void ToggleMusic()
     {
-        if (musicImage.sprite.Equals(musicOnSprite))
+        if (music)
         {
             musicImage.sprite = musicOffSprite;
             MusicManager.SetMusicVolume(0f);
         }
         else
         {
-            musicImage.sprite = musicOnSprite; ;
+            musicImage.sprite = musicOnSprite;
             MusicManager.SetMusicVolume(1f);
-
         }
+        music = !music;
     }
 
     public void RestartRound()

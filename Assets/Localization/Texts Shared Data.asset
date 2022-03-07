@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Key: health
     m_Metadata:
       m_Items:
-      - rid: 4994502028796363004
+      - rid: 4994502056683241646
   - m_Id: 619661627392
     m_Key: supplies
     m_Metadata:
@@ -84,18 +84,34 @@ MonoBehaviour:
     m_Key: loading
     m_Metadata:
       m_Items: []
+  - m_Id: 805009305767936
+    m_Key: introText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 813018148900864
+    m_Key: endGameFail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 813750772174848
+    m_Key: winGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 813824516427776
+    m_Key: journeyBegins
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 4994502028796363005
+    rid: 4994502056683241647
   references:
     version: 2
     RefIds:
-    - rid: 4994502028796363004
+    - rid: 4994502056683241646
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: little comment test
-    - rid: 4994502028796363005
+    - rid: 4994502056683241647
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1646478343161

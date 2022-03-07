@@ -20,8 +20,10 @@ public class LoadingGame : MonoBehaviour
         while(fadeStatus > 0f)
         {
             fadeStatus -= 1f / (0.3f / 0.01f);
-            var i = GetComponent<Image>();
-            i.color = new Color(i.color.r, i.color.g, i.color.b, fadeStatus);
+            foreach (var img in GetComponentsInChildren<Image>())
+            {
+                img.color = new Color(img.color.r, img.color.g, img.color.b, fadeStatus);
+            }
             foreach (var t in GetComponentsInChildren<TMP_Text>())
             {
                 t.color = new Color(t.color.r, t.color.g, t.color.b, fadeStatus);

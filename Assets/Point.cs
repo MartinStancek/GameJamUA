@@ -17,12 +17,30 @@ public class Point : MonoBehaviour
     public GameObject fightPrefab;
     public GameObject randomNPCPrefab;
 
+    public Color enemyColor;
+    public Color normalColor;
+
     private Vector3 origScale;
 
     private void Start()
     {
         transform.Find("img").SetAsLastSibling();
         origScale = transform.Find("img").localScale;
+
+        var t = transform.GetChild(0);
+        switch (t.name)
+        {
+            case "Obstacle":
+            case "Fight":
+            case "Bandits":
+                transform.Find("img").GetComponent<SpriteRenderer>().color = enemyColor;
+                break;
+            default:
+                transform.Find("img").GetComponent<SpriteRenderer>().color = normalColor;
+                break;
+
+        }
+
     }
 
     private void OnMouseUp()
@@ -134,6 +152,7 @@ public class Point : MonoBehaviour
         }
         LeanTween.scale(t.gameObject, Vector3.zero, 0.3f);
         Destroy(t.gameObject, 0.3f);
+        transform.Find("img").GetComponent<SpriteRenderer>().color = normalColor;
     }
 
     public void AfterPlayerTrun()
@@ -168,18 +187,22 @@ public class Point : MonoBehaviour
                 go = Instantiate(obstacklePrefab, transform);
                 go.transform.SetAsFirstSibling();
                 go.name = obstacklePrefab.name;
+                transform.Find("img").GetComponent<SpriteRenderer>().color = enemyColor;
+
             }
             else if (specialType < 50)  //bandits
             {
                 go = Instantiate(banditsPrefab, transform);
                 go.transform.SetAsFirstSibling();
                 go.name = banditsPrefab.name;
+                transform.Find("img").GetComponent<SpriteRenderer>().color = enemyColor;
             }
             else if (specialType < 75)  //Fight
             {
                 go = Instantiate(fightPrefab, transform);
                 go.transform.SetAsFirstSibling();
                 go.name = fightPrefab.name;
+                transform.Find("img").GetComponent<SpriteRenderer>().color = enemyColor;
 
             }
             else // Random NPC
@@ -195,6 +218,7 @@ public class Point : MonoBehaviour
         {
             LeanTween.scale(transform.GetChild(0).gameObject, Vector3.zero, 0.3f);
             Destroy(transform.GetChild(0).gameObject, 0.3f);
+            transform.Find("img").GetComponent<SpriteRenderer>().color = normalColor;
 
         }
     }
