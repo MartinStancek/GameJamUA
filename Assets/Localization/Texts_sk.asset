@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 77446795104256
-    m_Localized: "Zdolal som vy\u010Derp\xE1vaj\xFAcu prek\xE1\u017Eku.\r\n"
+    m_Localized: "Musel som \xEDs\u0165 obklukou."
     m_Metadata:
       m_Items: []
   - m_Id: 102564300722176
@@ -110,6 +110,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 842829084889088
     m_Localized: Vojak ma okradol!!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1106906730336256
+    m_Localized: "Zdolal som vy\u010Derp\xE1vaj\xFAcu prek\xE1\u017Eku."
     m_Metadata:
       m_Items: []
   references:

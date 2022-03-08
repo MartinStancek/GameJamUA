@@ -38,41 +38,20 @@ public class MusicManager : MonoBehaviour
     public MusicAudio menuMusic;
     public MusicAudio gameMusic;
 
+    public MusicAudio winMusic;
+    public MusicAudio looseMusic;
+
     private AudioSource musicSource;
 
     void Awake()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("Music");
-
-        if (objs.Length > 1)
-        {
-            Debug.Log("Destroyng musicManager...");
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            Debug.Log("DontDestroyOnLoad musicManager...");
-            _instance = this;
-            var scene = SceneManager.GetActiveScene();
-            SceneManager.sceneLoaded += SceneManager_sceneLoaded; ;
-            SetMusicVolume(PlayerPrefs.GetFloat("music", musicDefaultValue));
-            DontDestroyOnLoad(this.gameObject);
-        }
-    }
-
-    private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Instance.HandleSceneMusic(scene.name);
+        HandleSceneMusic(SceneManager.GetActiveScene().name);
     }
 
     public void HandleSceneMusic(String sceneName)
     {
         Debug.Log("HandleSceneMusic for " + sceneName);
 
-        if (musicSource != null)
-        {
-            FadeOut(musicSource);
-        }
         if (sceneName.Equals("MenuScene"))
         {
             PlayMenuSound();
@@ -82,26 +61,25 @@ public class MusicManager : MonoBehaviour
             PlayGameSound();
         }
     }
-    public async void FadeOut(AudioSource music)
+    public void FadeOutMusic()
+    {
+        StartCoroutine(FadeOut(musicSource));
+    }
+
+    public IEnumerator FadeOut(AudioSource music)
     {
         Debug.Log("FadeOut " + music.gameObject.name);
         var originaVolume = music.volume;
         while(music.volume > 0)
         {
             music.volume -= originaVolume / 20;
-            await Task.Delay(1000 / 20);
+            yield return new WaitForSeconds(0.9f / 20f);
         }
         Destroy(music.gameObject);
     }
-    public async void DestroyAfter(float seconds, GameObject obj)
-    {
-        await Task.Delay(Mathf.RoundToInt(seconds * 1000));
-        GameObject.Destroy(obj);
-    }
 
-    public async void PlayMenuSound()
+    public void PlayMenuSound()
     {
-        await Task.Delay(1000);
         var go = new GameObject("MENU_SOUND");
         go.transform.parent = transform;
         musicSource = go.AddComponent<AudioSource>();
@@ -112,9 +90,8 @@ public class MusicManager : MonoBehaviour
         musicSource.Play();
         //Destroy(go, Instance.intro.clip.length);
     }
-    public async void PlayGameSound()
+    public void PlayGameSound()
     {
-        await Task.Delay(1000);
         var go = new GameObject("GAME_SOUND");
         go.transform.parent = transform;
         musicSource = go.AddComponent<AudioSource>();
@@ -124,6 +101,29 @@ public class MusicManager : MonoBehaviour
         musicSource.loop = true;
         musicSource.Play();
         //Destroy(go, Instance.intro.clip.length);
+    }
+
+    public void PlayWinSound()
+    {
+        var go = new GameObject("WIN_SOUND");
+        go.transform.parent = transform;
+        musicSource = go.AddComponent<AudioSource>();
+
+        musicSource.volume = gameMusic.volume * PlayerPrefs.GetFloat("music", musicDefaultValue);
+        musicSource.clip = winMusic.clip;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+    public void PlayLooseSound()
+    {
+        var go = new GameObject("LOOSE_SOUND");
+        go.transform.parent = transform;
+        musicSource = go.AddComponent<AudioSource>();
+        musicSource.volume = gameMusic.volume * PlayerPrefs.GetFloat("music", musicDefaultValue);
+        musicSource.clip = looseMusic.clip;
+        musicSource.loop = true;
+        musicSource.Play();
+
     }
     public static void SetMusicVolume(float value)
     {

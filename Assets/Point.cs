@@ -85,18 +85,42 @@ public class Point : MonoBehaviour
 
     public void PlayerArrived()
     {
-        if(transform.childCount == 1)
-        {
-            return;
-        }
-        int amount;
         var t = transform.GetChild(0);
         switch (t.name)
         {
             case "Obstacle":
-                amount =  -1;
-                Messages.Instance.AddMessage(Messages.Instance.obstickle, "" + amount, Messages.Instance.energyIcon);
-                Player.Instance.energy += amount;
+            case "Fight":
+            case "Bandits":
+                SoundManager.Instance.PlayClip(SoundManager.Instance.enemyClip);
+                break;
+            case "Shelter":
+            case "Hospital":
+            case "Supplies":
+                SoundManager.Instance.PlayClip(SoundManager.Instance.supportClip);
+                break;
+            default:
+                break;
+
+        }
+
+        if (transform.childCount == 1)
+        {
+            return;
+        }
+        int amount;
+        switch (t.name)
+        {
+            case "Obstacle":
+                amount = Random.Range(1, 3);
+                if (amount == 1)
+                {
+                    Messages.Instance.AddMessage(Messages.Instance.obstickle, "-" + amount, Messages.Instance.energyIcon);
+                }
+                else
+                {
+                    Messages.Instance.AddMessage(Messages.Instance.obstickle2, "-" + amount, Messages.Instance.energyIcon);
+                }
+                Player.Instance.energy -= amount;
                 break;
             case "Shelter":
                 Messages.Instance.AddMessage(Messages.Instance.shelter, "+2", Messages.Instance.energyIcon);

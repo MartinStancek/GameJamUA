@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -56,10 +57,21 @@ public class MainMenuManager : MonoBehaviour
             fadeStatus += 1f / (0.3f / 0.01f);
             screen1.color = new Color(screen1.color.r, screen1.color.g, screen1.color.b, 1f - fadeStatus);
             screen2.color = new Color(screen2.color.r, screen2.color.g, screen2.color.b, fadeStatus);
+            foreach (var t in screen1.GetComponentsInChildren<TMP_Text>())
+            {
+                t.color = new Color(t.color.r, t.color.g, t.color.b, 1f - fadeStatus);
+            }
+            foreach (var t in screen2.GetComponentsInChildren<TMP_Text>())
+            {
+                t.color = new Color(t.color.r, t.color.g, t.color.b, fadeStatus);
+            }
+
+
             yield return new WaitForSeconds(0.01f);
         }
         yield return new WaitForSeconds(5.5f);
         cor = StartCoroutine(LoadGamePlay());
+        MusicManager.Instance.FadeOutMusic();
     }
 
     IEnumerator LoadGamePlay()
@@ -71,6 +83,10 @@ public class MainMenuManager : MonoBehaviour
             fadeStatus -= 1f / (0.3f / 0.01f);
             var i = screen2.GetComponent<Image>();
             i.color = new Color(i.color.r, i.color.g, i.color.b, fadeStatus);
+            foreach (var t in screen2.GetComponentsInChildren<TMP_Text>())
+            {
+                t.color = new Color(t.color.r, t.color.g, t.color.b, fadeStatus);
+            }
             yield return new WaitForSeconds(0.01f);
         }
         SceneManager.LoadSceneAsync(1);

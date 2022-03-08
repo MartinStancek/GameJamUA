@@ -119,6 +119,7 @@ public class Player : MonoBehaviour
                 kido.transform.localScale = new Vector3(-Mathf.Abs(kido.transform.localScale.x), kido.transform.localScale.y, kido.transform.localScale.z);
             }
             anim.SetBool("isRunning", true);
+            SoundManager.Instance.PlayClip(SoundManager.Instance.emptyClip);
         }
     }
 

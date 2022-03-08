@@ -28,6 +28,7 @@ public class Messages : MonoBehaviour
     public GameObject msgPrefab;
 
     public readonly string obstickle = "obstacklePopup";
+    public readonly string obstickle2 = "obstackle2Popup";
     public readonly string shelter = "shelterPopup";
     public readonly string uplatok = "stealPopup";
     public readonly string sellStuff = "suppliesPopup";

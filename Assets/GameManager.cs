@@ -40,8 +40,10 @@ public class GameManager : MonoBehaviour
     IEnumerator WinGameLate()
     {
         fadeStatus = 0;
+        MusicManager.Instance.FadeOutMusic();
 
         yield return new WaitForSeconds(1f);
+        MusicManager.Instance.PlayWinSound();
         WinPanel.SetActive(true);
         while (fadeStatus < 1f)
         {
@@ -62,8 +64,10 @@ public class GameManager : MonoBehaviour
     IEnumerator LooseLate()
     {
         fadeStatus = 0;
-
+        MusicManager.Instance.FadeOutMusic();
         yield return new WaitForSeconds(1f);
+        MusicManager.Instance.PlayWinSound();
+
         LoosePanel.SetActive(true);
         while (fadeStatus < 1f)
         {
