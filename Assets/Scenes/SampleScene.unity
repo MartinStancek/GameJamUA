@@ -5746,7 +5746,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Moja cesta sa v\u0161ak iba za\u010D\xEDna..."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b9c364346cf9e9341b6ae21b21930b17, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: -7809007474605077911, guid: b9c364346cf9e9341b6ae21b21930b17, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5810,7 +5810,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &315879437
@@ -6327,8 +6327,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Pom\xF4\u017E mi utiec\u0165 z vojnou zmietan\xE9ho mesta!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b9c364346cf9e9341b6ae21b21930b17, type: 2}
-  m_sharedMaterial: {fileID: -7809007474605077911, guid: b9c364346cf9e9341b6ae21b21930b17, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6352,7 +6352,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58.05
+  m_fontSize: 57.4
   m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10402,7 +10402,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Podarilo sa mi utiec\u0165 z najhor\u0161ieho."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b9c364346cf9e9341b6ae21b21930b17, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: -7809007474605077911, guid: b9c364346cf9e9341b6ae21b21930b17, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10466,7 +10466,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &586307205
@@ -12660,8 +12660,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Loaging...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b9c364346cf9e9341b6ae21b21930b17, type: 2}
-  m_sharedMaterial: {fileID: -7809007474605077911, guid: b9c364346cf9e9341b6ae21b21930b17, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13582,11 +13582,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8438956635787937189, guid: a12b099229d3e2344ae13984f815d06b, type: 3}
       propertyPath: enemyClip.volume
-      value: 1
+      value: 0.529
       objectReference: {fileID: 0}
     - target: {fileID: 8438956635787937189, guid: a12b099229d3e2344ae13984f815d06b, type: 3}
       propertyPath: supportClip.volume
-      value: 1
+      value: 0.317
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a12b099229d3e2344ae13984f815d06b, type: 3}
@@ -23342,6 +23342,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3021781533190667543, guid: 90fd6856f50ec1449adf4c8aabcf6a99, type: 3}
+      propertyPath: startEndColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021781533190667543, guid: 90fd6856f50ec1449adf4c8aabcf6a99, type: 3}
+      propertyPath: startEndColor.b
+      value: 0.30980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021781533190667543, guid: 90fd6856f50ec1449adf4c8aabcf6a99, type: 3}
+      propertyPath: startEndColor.g
+      value: 0.81960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021781533190667543, guid: 90fd6856f50ec1449adf4c8aabcf6a99, type: 3}
+      propertyPath: startEndColor.r
+      value: 0.56078434
+      objectReference: {fileID: 0}
     - target: {fileID: 3206012223053272043, guid: 90fd6856f50ec1449adf4c8aabcf6a99, type: 3}
       propertyPath: m_Name
       value: Point (40)
@@ -24364,7 +24380,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Moja cesta sa tu kon\u010D\xED..."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b9c364346cf9e9341b6ae21b21930b17, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: -7809007474605077911, guid: b9c364346cf9e9341b6ae21b21930b17, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -24428,7 +24444,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1310628263
@@ -24713,7 +24729,7 @@ Transform:
   m_GameObject: {fileID: 1326955507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.972, y: 5.7166, z: 10}
-  m_LocalScale: {x: 0.52314925, y: 0.52238655, z: 1}
+  m_LocalScale: {x: 0.5231492, y: 0.5231492, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 276620251}

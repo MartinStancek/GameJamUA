@@ -20,7 +20,7 @@ public class SoundManager : MonoBehaviour
     }
     #endregion
 
-    public static float soundDefaultValue = 0.5f;
+    public static float soundDefaultValue = 1f;
 
     public MusicManager.MusicAudio enemyClip;
     public MusicManager.MusicAudio emptyClip;

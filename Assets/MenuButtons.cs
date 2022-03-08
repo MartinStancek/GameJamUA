@@ -46,11 +46,21 @@ public class MenuButtons : MonoBehaviour
 
     }
 
+
     public void Quit()
     {
-        Application.Quit();
-    }
+#if !PLATFORM_WEBGL
 
+        Application.Quit();
+#endif
+
+#if PLATFORM_WEBGL
+
+        Screen.fullScreen = false;
+#endif
+
+
+    }
     public void ToggleLanguage()
     {
         switch (currentLanguage)

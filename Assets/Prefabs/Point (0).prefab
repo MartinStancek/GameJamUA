@@ -119,7 +119,8 @@ MonoBehaviour:
   fightPrefab: {fileID: 1725389502775248429, guid: 01aec017beda717478fde227afeaeba6, type: 3}
   randomNPCPrefab: {fileID: 1340056740360036633, guid: 448bbcb69c3725643b1c069a3405458e, type: 3}
   enemyColor: {r: 0.9490196, g: 0.2784314, b: 0.14901961, a: 1}
-  normalColor: {r: 0.8235295, g: 0.8235295, b: 0.8235295, a: 1}
+  normalColor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+  startEndColor: {r: 0.56078434, g: 0.81960785, b: 0.30980393, a: 1}
 --- !u!135 &1929240653453373233
 SphereCollider:
   m_ObjectHideFlags: 0

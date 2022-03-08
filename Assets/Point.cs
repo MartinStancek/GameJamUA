@@ -19,6 +19,7 @@ public class Point : MonoBehaviour
 
     public Color enemyColor;
     public Color normalColor;
+    public Color startEndColor;
 
     private Vector3 origScale;
 
@@ -38,6 +39,11 @@ public class Point : MonoBehaviour
             default:
                 transform.Find("img").GetComponent<SpriteRenderer>().color = normalColor;
                 break;
+        }
+
+        if(Player.Instance.startPoint.Equals(this) || Player.Instance.endPoint.Equals(this))
+        {
+            transform.Find("img").GetComponent<SpriteRenderer>().color = startEndColor;
 
         }
 
@@ -177,6 +183,15 @@ public class Point : MonoBehaviour
                     Messages.Instance.AddMessage(direction > 0 ? Messages.Instance.npcMoneyIncome : Messages.Instance.npcMonyeDonate, "" + (direction > 0 ? "+" + direction : direction), Messages.Instance.moneyIcon);
                     Player.Instance.supplies += direction;
                 }
+                if(direction == 1)
+                {
+                    SoundManager.Instance.PlayClip(SoundManager.Instance.supportClip);
+                }
+                else
+                {
+                    SoundManager.Instance.PlayClip(SoundManager.Instance.enemyClip);
+                }
+
                 break;
         }
         LeanTween.scale(t.gameObject, Vector3.zero, 0.3f);
